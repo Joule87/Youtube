@@ -8,13 +8,15 @@
 
 import UIKit
 
-class VideoCollectionViewCell: UICollectionViewCell {
+class VideoCollectionViewCell: BaseCollectionViewCell {
     
     static let reuseIdentifier = "VideoCollectionViewCell"
     
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.image = UIImage(named: "taylor_banner_image")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -26,34 +28,31 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     let userProfileImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .green
+        view.image = UIImage(named: "taylor_profile_image")
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 22
+        
         return view
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .purple
+        label.text = "Taylor Swift - Blanck Space"
         return label
     }()
     
     let subTitleTextView: UITextView = {
-        let texView = UITextView()
-        texView.translatesAutoresizingMaskIntoConstraints = false
-        texView.backgroundColor = .red
-        return texView
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
+        textView.textColor = .lightGray
+        textView.text = "TaylorSwiftVEVO - 1,604,684,607 views - 2 years ago"
+        return textView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
+    override func setupViews() {
+        super.setupViews()
         addSubview(thumbnailImageView)
         addSubview(separatorView)
         addSubview(userProfileImageView)
@@ -88,7 +87,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         addSubview(subTitleTextView)
 
         //top constraint
-        addConstraint(NSLayoutConstraint(item: subTitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 8))
+        addConstraint(NSLayoutConstraint(item: subTitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 4))
 
         //left constraint
         addConstraint(NSLayoutConstraint(item: subTitleTextView, attribute: .left, relatedBy: .equal, toItem: userProfileImageView, attribute: .right, multiplier: 1, constant: 8))
@@ -97,7 +96,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         addConstraint(NSLayoutConstraint(item: subTitleTextView, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: -16))
 
         //height constraint
-        addConstraint(NSLayoutConstraint(item: subTitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        addConstraint(NSLayoutConstraint(item: subTitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
 
     }
     
