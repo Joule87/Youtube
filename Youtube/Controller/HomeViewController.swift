@@ -15,12 +15,57 @@ class HomeViewController: UICollectionViewController {
         return menu
     }()
     
+    var videos: [Video] = {
+        var goku = Channel()
+        goku.name = "DBZ"
+        goku.profileImageName = "goku"
+        
+        var taylor = Channel()
+        taylor.name = "Taylor Company"
+        taylor.profileImageName = "taylor_profile_image"
+        
+        var blankSpaceVideo = Video()
+        blankSpaceVideo.title = "Taylor Swift - Blank Space"
+        blankSpaceVideo.thimbnailImageName = "taylor_banner_image"
+        blankSpaceVideo.channel = goku
+        blankSpaceVideo.numberOfViews = 1230435
+        
+        var badBloodVideo = Video()
+        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
+        badBloodVideo.thimbnailImageName = "taylor_badBlood_banner"
+        badBloodVideo.channel = taylor
+        badBloodVideo.numberOfViews = 5000123
+        
+        return [blankSpaceVideo, badBloodVideo]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupNavigationBarButtons()
         setupMenuBar()
         setupCollectionView()
-
+        
+    }
+    
+    private func setupNavigationBarButtons() {
+        let searchImage = #imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate)
+        let searchImageButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
+        searchImageButton.tintColor = .white
+        
+        let moreBurtton = #imageLiteral(resourceName: "more").withRenderingMode(.alwaysTemplate)
+        let moreImageButton = UIBarButtonItem(image: moreBurtton, style: .plain, target: self, action: #selector(handleMore))
+        moreImageButton.tintColor = .white
+        
+        navigationItem.rightBarButtonItems = [moreImageButton, searchImageButton]
+    }
+    
+    @objc func handleSearch() {
+        print("asd")
+    }
+    
+    @objc func handleMore() {
+        print("123")
     }
     
     private func setupCollectionView() {
@@ -52,17 +97,30 @@ class HomeViewController: UICollectionViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return videos.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCollectionViewCell.reuseIdentifier, for: indexPath) as! VideoCollectionViewCell
+        cell.thumbnailImageName = videos[indexPath.row].thimbnailImageName
+        cell.title = videos[indexPath.row].title
+        cell.channelImageName = videos[indexPath.row].channel?.profileImageName
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        
+        if let channelName = videos[indexPath.row].channel?.name,
+            let numberOfViews = videos[indexPath.row].numberOfViews,
+            let numberOfViewsFormatted = numberFormatter.string(from: numberOfViews) {
+            
+            cell.videoDescription = "\(channelName) • \(numberOfViewsFormatted) • 2 years ago"
+        }
         
         return cell
     }
-
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
