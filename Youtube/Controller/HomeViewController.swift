@@ -15,29 +15,31 @@ class HomeViewController: UICollectionViewController {
         return menu
     }()
     
-    var videos: [Video] = {
-        var goku = Channel()
-        goku.name = "DBZ"
-        goku.profileImageName = "goku"
-        
-        var taylor = Channel()
-        taylor.name = "Taylor Company"
-        taylor.profileImageName = "taylor_profile_image"
-        
-        var blankSpaceVideo = Video()
-        blankSpaceVideo.title = "Taylor Swift - Blank Space"
-        blankSpaceVideo.thimbnailImageName = "taylor_banner_image"
-        blankSpaceVideo.channel = goku
-        blankSpaceVideo.numberOfViews = 1230435
-        
-        var badBloodVideo = Video()
-        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
-        badBloodVideo.thimbnailImageName = "taylor_badBlood_banner"
-        badBloodVideo.channel = taylor
-        badBloodVideo.numberOfViews = 5000123
-        
-        return [blankSpaceVideo, badBloodVideo]
-    }()
+//    var videos: [Video] = {
+//        var goku = Channel()
+//        goku.name = "DBZ"
+//        goku.profileImageName = "Goku"
+//
+//        var taylor = Channel()
+//        taylor.name = "Taylor Company"
+//        taylor.profileImageName = "taylor_profile_image"
+//
+//        var blankSpaceVideo = Video()
+//        blankSpaceVideo.title = "Taylor Swift - Blank Space"
+//        blankSpaceVideo.thimbnailImageName = "taylor_banner_image"
+//        blankSpaceVideo.channel = goku
+//        blankSpaceVideo.numberOfViews = 1230435
+//
+//        var badBloodVideo = Video()
+//        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
+//        badBloodVideo.thimbnailImageName = "taylor_badBlood_banner"
+//        badBloodVideo.channel = taylor
+//        badBloodVideo.numberOfViews = 5000123
+//
+//        return [blankSpaceVideo, badBloodVideo]
+//    }()
+    
+    var videos: [Video] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,25 @@ class HomeViewController: UICollectionViewController {
         setupNavigationBarButtons()
         setupMenuBar()
         setupCollectionView()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchVideos()
+    }
+    
+    private func fetchVideos() {
+        let videoAPIClientManager = VideoAPIClientManager()
+        videoAPIClientManager.getVideos { [weak self ]result in
+            guard let saveSelf = self else { return }
+            switch result {
+            case .success(let value):
+                saveSelf.videos = value
+                saveSelf.collectionView.reloadData()
+            case .failure(let error, _):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
     
     private func setupNavigationBarButtons() {
@@ -104,7 +124,7 @@ class HomeViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCollectionViewCell.reuseIdentifier, for: indexPath) as! VideoCollectionViewCell
-        cell.thumbnailImageName = videos[indexPath.row].thimbnailImageName
+        cell.thumbnailImageName = videos[indexPath.row].thumbnailImageName
         cell.title = videos[indexPath.row].title
         cell.channelImageName = videos[indexPath.row].channel?.profileImageName
         
@@ -113,7 +133,7 @@ class HomeViewController: UICollectionViewController {
         
         if let channelName = videos[indexPath.row].channel?.name,
             let numberOfViews = videos[indexPath.row].numberOfViews,
-            let numberOfViewsFormatted = numberFormatter.string(from: numberOfViews) {
+            let numberOfViewsFormatted = numberFormatter.string(for: numberOfViews) {
             
             cell.videoDescription = "\(channelName) • \(numberOfViewsFormatted) • 2 years ago"
         }

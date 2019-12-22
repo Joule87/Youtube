@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3ADDC8C7DEB753DEC457DFF /* Pods_Youtube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748212319AF92A5414E02F49 /* Pods_Youtube.framework */; };
 		F4072C4823ACF9A600BA0D8C /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4072C4723ACF9A600BA0D8C /* Video.swift */; };
 		F4072C4A23AD05EA00BA0D8C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4072C4923AD05EA00BA0D8C /* Channel.swift */; };
 		F4072C4C23AD446800BA0D8C /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = F4072C4B23AD446800BA0D8C /* home.json */; };
@@ -23,9 +24,18 @@
 		F44055E923A664E00062F44C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44055E823A664E00062F44C /* HomeViewController.swift */; };
 		F44055F223A669010062F44C /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44055F123A669010062F44C /* VideoCollectionViewCell.swift */; };
 		F445D37523A6782B0066B916 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F445D37423A6782B0066B916 /* UIView_Extension.swift */; };
+		F4828C8723ADB4AF0047481C /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8623ADB4AF0047481C /* AlamofireRequest.swift */; };
+		F4828C8923ADB70A0047481C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8823ADB70A0047481C /* Result.swift */; };
+		F4828C8B23ADB7DF0047481C /* VideoAPIClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */; };
+		F4828C8E23ADB81A0047481C /* VideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8D23ADB81A0047481C /* VideoAPI.swift */; };
+		F490A0B023AEF22D000E40B1 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490A0AF23AEF22D000E40B1 /* UIImageView_Extension.swift */; };
+		F4D61EB923AECA59001D9596 /* ImageClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D61EB823AECA59001D9596 /* ImageClientManager.swift */; };
+		F4D61EBB23AECB5B001D9596 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D61EBA23AECB5B001D9596 /* ImageAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F5F3D01372C0A5584212322 /* Pods-Youtube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube/Pods-Youtube.release.xcconfig"; sourceTree = "<group>"; };
+		748212319AF92A5414E02F49 /* Pods_Youtube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Youtube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4072C4723ACF9A600BA0D8C /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		F4072C4923AD05EA00BA0D8C /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		F4072C4B23AD446800BA0D8C /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
@@ -44,6 +54,15 @@
 		F44055E823A664E00062F44C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F44055F123A669010062F44C /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F445D37423A6782B0066B916 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
+		F4828C8623ADB4AF0047481C /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		F4828C8823ADB70A0047481C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIClientManager.swift; sourceTree = "<group>"; };
+		F4828C8D23ADB81A0047481C /* VideoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPI.swift; sourceTree = "<group>"; };
+		F485012123ADBB3100252144 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F490A0AF23AEF22D000E40B1 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
+		F4D61EB823AECA59001D9596 /* ImageClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClientManager.swift; sourceTree = "<group>"; };
+		F4D61EBA23AECB5B001D9596 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		F56AB1295A2E5D9FD34C8CA0 /* Pods-Youtube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube/Pods-Youtube.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,12 +70,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3ADDC8C7DEB753DEC457DFF /* Pods_Youtube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BF4D8599F533AF67182A0D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F485012123ADBB3100252144 /* Alamofire.framework */,
+				748212319AF92A5414E02F49 /* Pods_Youtube.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEEE7D6877EE6A74B7099B86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F56AB1295A2E5D9FD34C8CA0 /* Pods-Youtube.debug.xcconfig */,
+				0F5F3D01372C0A5584212322 /* Pods-Youtube.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F43CF58423ABB20200A02973 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +108,8 @@
 			children = (
 				F44055D323A65E710062F44C /* Youtube */,
 				F44055D223A65E710062F44C /* Products */,
+				EEEE7D6877EE6A74B7099B86 /* Pods */,
+				8BF4D8599F533AF67182A0D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +124,7 @@
 		F44055D323A65E710062F44C /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				F4828C8423ADB4980047481C /* Service */,
 				F44055EE23A6684E0062F44C /* Common */,
 				F44055ED23A668470062F44C /* Resources */,
 				F44055EC23A6682F0062F44C /* Model */,
@@ -136,6 +177,7 @@
 		F44055EE23A6684E0062F44C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F4D61EBC23AECE55001D9596 /* Utils */,
 				F445D37323A6780E0066B916 /* Extensions */,
 			);
 			path = Common;
@@ -165,8 +207,45 @@
 			children = (
 				F445D37423A6782B0066B916 /* UIView_Extension.swift */,
 				F43CF58223ABAC5E00A02973 /* UIColor_Extension.swift */,
+				F490A0AF23AEF22D000E40B1 /* UIImageView_Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4828C8423ADB4980047481C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F4828C8C23ADB8080047481C /* API */,
+				F4828C8523ADB4A40047481C /* Network */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F4828C8523ADB4A40047481C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F4828C8623ADB4AF0047481C /* AlamofireRequest.swift */,
+				F4828C8823ADB70A0047481C /* Result.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F4828C8C23ADB8080047481C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */,
+				F4828C8D23ADB81A0047481C /* VideoAPI.swift */,
+				F4D61EB823AECA59001D9596 /* ImageClientManager.swift */,
+				F4D61EBA23AECB5B001D9596 /* ImageAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F4D61EBC23AECE55001D9596 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,9 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F44055E523A65E710062F44C /* Build configuration list for PBXNativeTarget "Youtube" */;
 			buildPhases = (
+				E9B6FCEBF4A6D07A4373FA2A /* [CP] Check Pods Manifest.lock */,
 				F44055CD23A65E710062F44C /* Sources */,
 				F44055CE23A65E710062F44C /* Frameworks */,
 				F44055CF23A65E710062F44C /* Resources */,
+				B157FCD3B3BD5EDC1B31B954 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,22 +317,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B157FCD3B3BD5EDC1B31B954 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Youtube/Pods-Youtube-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Youtube/Pods-Youtube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9B6FCEBF4A6D07A4373FA2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Youtube-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F44055CD23A65E710062F44C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F44055E923A664E00062F44C /* HomeViewController.swift in Sources */,
+				F4828C8B23ADB7DF0047481C /* VideoAPIClientManager.swift in Sources */,
 				F4072C4A23AD05EA00BA0D8C /* Channel.swift in Sources */,
 				F41CF1D123ABEFA9003DDD0B /* MenuBarOptions.swift in Sources */,
+				F4D61EBB23AECB5B001D9596 /* ImageAPI.swift in Sources */,
 				F44055D523A65E710062F44C /* AppDelegate.swift in Sources */,
+				F4828C8923ADB70A0047481C /* Result.swift in Sources */,
+				F4828C8723ADB4AF0047481C /* AlamofireRequest.swift in Sources */,
 				F41CF1CF23ABE738003DDD0B /* BaseCollectionViewCell.swift in Sources */,
 				F44055F223A669010062F44C /* VideoCollectionViewCell.swift in Sources */,
 				F41CF1CD23ABE6A5003DDD0B /* MenuCollectionViewCell.swift in Sources */,
+				F4D61EB923AECA59001D9596 /* ImageClientManager.swift in Sources */,
+				F4828C8E23ADB81A0047481C /* VideoAPI.swift in Sources */,
 				F445D37523A6782B0066B916 /* UIView_Extension.swift in Sources */,
 				F4072C4823ACF9A600BA0D8C /* Video.swift in Sources */,
 				F44055D723A65E710062F44C /* SceneDelegate.swift in Sources */,
 				F43CF58623ABB25300A02973 /* MenuBar.swift in Sources */,
+				F490A0B023AEF22D000E40B1 /* UIImageView_Extension.swift in Sources */,
 				F43CF58323ABAC5E00A02973 /* UIColor_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +529,7 @@
 		};
 		F44055E623A65E710062F44C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F56AB1295A2E5D9FD34C8CA0 /* Pods-Youtube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -413,6 +549,7 @@
 		};
 		F44055E723A65E710062F44C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F5F3D01372C0A5584212322 /* Pods-Youtube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
