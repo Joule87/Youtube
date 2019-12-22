@@ -15,7 +15,7 @@ class VideoCollectionViewCell: BaseCollectionViewCell {
     var thumbnailImageName: String? {
         didSet {
             if let thumbnailImageName = thumbnailImageName {
-                thumbnailImageView.image = UIImage(named:  thumbnailImageName)
+               self.thumbnailImageView.loadImage(fromURL: thumbnailImageName)
             }
         }
     }
@@ -30,7 +30,7 @@ class VideoCollectionViewCell: BaseCollectionViewCell {
     var channelImageName: String? {
         didSet {
             if let imageName = channelImageName {
-                userProfileImageView.image = UIImage(named:  imageName)
+                userProfileImageView.loadImage(fromURL: imageName)
             }
         }
     }
@@ -45,9 +45,8 @@ class VideoCollectionViewCell: BaseCollectionViewCell {
     
     var titleLabelHeigntConstraint: NSLayoutConstraint?
     
-    private let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "taylor_banner_image")
+    private let thumbnailImageView: UIImageViewLoader = {
+        let imageView = UIImageViewLoader()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -59,12 +58,11 @@ class VideoCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    private let userProfileImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "taylor_profile_image")
+    private let userProfileImageView: UIImageViewLoader = {
+        let view = UIImageViewLoader()
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 22
-        
+        view.contentMode = .scaleAspectFill
         return view
     }()
     

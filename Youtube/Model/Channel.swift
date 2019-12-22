@@ -8,7 +8,12 @@
 
 import Foundation
 
-class Channel: NSObject {
+class Channel: Codable {
     var name: String?
     var profileImageName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case profileImageName = "profile_image_name"
+    }
 }

@@ -8,11 +8,19 @@
 
 import UIKit
 
-class Video: NSObject {
-    var thimbnailImageName: String?
+class Video: Codable {
+    var thumbnailImageName: String?
     var title: String?
-    var numberOfViews: NSNumber?
-    var uploadDate: NSDate?
+    var numberOfViews: Int?
+    var uploadDate: Date?
     
     var channel: Channel?
+    
+    enum CodingKeys: String, CodingKey{
+        case thumbnailImageName = "thumbnail_image_name"
+        case title
+        case numberOfViews = "number_of_views"
+        case uploadDate
+        case channel
+    }
 }
