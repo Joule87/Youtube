@@ -15,31 +15,13 @@ class HomeViewController: UICollectionViewController {
         return menu
     }()
     
-//    var videos: [Video] = {
-//        var goku = Channel()
-//        goku.name = "DBZ"
-//        goku.profileImageName = "Goku"
-//
-//        var taylor = Channel()
-//        taylor.name = "Taylor Company"
-//        taylor.profileImageName = "taylor_profile_image"
-//
-//        var blankSpaceVideo = Video()
-//        blankSpaceVideo.title = "Taylor Swift - Blank Space"
-//        blankSpaceVideo.thimbnailImageName = "taylor_banner_image"
-//        blankSpaceVideo.channel = goku
-//        blankSpaceVideo.numberOfViews = 1230435
-//
-//        var badBloodVideo = Video()
-//        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
-//        badBloodVideo.thimbnailImageName = "taylor_badBlood_banner"
-//        badBloodVideo.channel = taylor
-//        badBloodVideo.numberOfViews = 5000123
-//
-//        return [blankSpaceVideo, badBloodVideo]
-//    }()
-    
     var videos: [Video] = []
+    
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeViewControllerNavigationDelegate = self
+        return launcher
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +67,7 @@ class HomeViewController: UICollectionViewController {
     }
     
     @objc func handleMore() {
-        print("123")
+        settingsLauncher.showSettings()
     }
     
     private func setupCollectionView() {
@@ -96,13 +78,21 @@ class HomeViewController: UICollectionViewController {
         let menuBarHeight: CGFloat = 50
         self.collectionView.contentInset = UIEdgeInsets(top: menuBarHeight, left: 0, bottom: 0, right: 0)
         self.collectionView.scrollIndicatorInsets = UIEdgeInsets(top: menuBarHeight, left: 0, bottom: 0, right: 0)
-        
+         
     }
     
     private func setupMenuBar(){
+        //FIXME: - RedView to cover black space between the navBar and MenuBar when sliding occurs, not better solution founded for this issue
+        let redView = UIView()
+        redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        view.addSubview(redView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
+        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: redView)
+        
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuBar)
+        menuBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
     
     func setupNavigationBar() {
@@ -110,7 +100,7 @@ class HomeViewController: UICollectionViewController {
         titleLabel.text = "Home"
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = .white
-        
+        navigationController?.hidesBarsOnSwipe = true
         navigationItem.titleView = titleLabel
         
         //Get rid of gray line underneath navigationBar
@@ -165,4 +155,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
+}
+
+extension HomeViewController: HomeViewControllerNavigationDelegate {
+    func showViewController(for setting: SettingsMenuOptions) {
+        if let navigationController = self.navigationController {
+            NavigationBuilder.pushViewController(for: setting, on: navigationController)
+        }
+        
+    }
 }

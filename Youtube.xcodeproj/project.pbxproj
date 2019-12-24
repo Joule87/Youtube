@@ -28,9 +28,20 @@
 		F4828C8923ADB70A0047481C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8823ADB70A0047481C /* Result.swift */; };
 		F4828C8B23ADB7DF0047481C /* VideoAPIClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */; };
 		F4828C8E23ADB81A0047481C /* VideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8D23ADB81A0047481C /* VideoAPI.swift */; };
-		F490A0B023AEF22D000E40B1 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490A0AF23AEF22D000E40B1 /* UIImageView_Extension.swift */; };
+		F490A0B023AEF22D000E40B1 /* UIImageViewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490A0AF23AEF22D000E40B1 /* UIImageViewLoader.swift */; };
 		F4D61EB923AECA59001D9596 /* ImageClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D61EB823AECA59001D9596 /* ImageClientManager.swift */; };
 		F4D61EBB23AECB5B001D9596 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D61EBA23AECB5B001D9596 /* ImageAPI.swift */; };
+		F4DE58FA23AFF195006B7478 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE58F923AFF195006B7478 /* SettingsLauncher.swift */; };
+		F4DE58FC23B00F68006B7478 /* SetttingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE58FB23B00F68006B7478 /* SetttingsCollectionViewCell.swift */; };
+		F4DE58FE23B01868006B7478 /* SettingsMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE58FD23B01868006B7478 /* SettingsMenuOptions.swift */; };
+		F4F7A01B23B0F9FF00B8EB16 /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A01A23B0F9FF00B8EB16 /* NavigationBuilder.swift */; };
+		F4F7A01E23B0FB7B00B8EB16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A01D23B0FB7B00B8EB16 /* SettingsViewController.swift */; };
+		F4F7A02023B0FB9800B8EB16 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A01F23B0FB9800B8EB16 /* PolicyViewController.swift */; };
+		F4F7A02223B0FBA600B8EB16 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A02123B0FBA600B8EB16 /* FeedbackViewController.swift */; };
+		F4F7A02423B0FBB400B8EB16 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A02323B0FBB400B8EB16 /* HelpViewController.swift */; };
+		F4F7A02623B0FBC400B8EB16 /* SwitchAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A02523B0FBC400B8EB16 /* SwitchAccountViewController.swift */; };
+		F4F7A02923B0FEA700B8EB16 /* HomeViewControllerNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A02823B0FEA700B8EB16 /* HomeViewControllerNavigationDelegate.swift */; };
+		F4F7A02B23B1007E00B8EB16 /* BaseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F7A02A23B1007E00B8EB16 /* BaseMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,9 +70,20 @@
 		F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIClientManager.swift; sourceTree = "<group>"; };
 		F4828C8D23ADB81A0047481C /* VideoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPI.swift; sourceTree = "<group>"; };
 		F485012123ADBB3100252144 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F490A0AF23AEF22D000E40B1 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
+		F490A0AF23AEF22D000E40B1 /* UIImageViewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewLoader.swift; sourceTree = "<group>"; };
 		F4D61EB823AECA59001D9596 /* ImageClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClientManager.swift; sourceTree = "<group>"; };
 		F4D61EBA23AECB5B001D9596 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		F4DE58F923AFF195006B7478 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		F4DE58FB23B00F68006B7478 /* SetttingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetttingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4DE58FD23B01868006B7478 /* SettingsMenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuOptions.swift; sourceTree = "<group>"; };
+		F4F7A01A23B0F9FF00B8EB16 /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
+		F4F7A01D23B0FB7B00B8EB16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F4F7A01F23B0FB9800B8EB16 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
+		F4F7A02123B0FBA600B8EB16 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		F4F7A02323B0FBB400B8EB16 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		F4F7A02523B0FBC400B8EB16 /* SwitchAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccountViewController.swift; sourceTree = "<group>"; };
+		F4F7A02823B0FEA700B8EB16 /* HomeViewControllerNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerNavigationDelegate.swift; sourceTree = "<group>"; };
+		F4F7A02A23B1007E00B8EB16 /* BaseMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMenuViewController.swift; sourceTree = "<group>"; };
 		F56AB1295A2E5D9FD34C8CA0 /* Pods-Youtube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube/Pods-Youtube.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,10 +159,13 @@
 		F44055EA23A668190062F44C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4F7A02723B0FE8F00B8EB16 /* Protocols */,
+				F4F7A01C23B0FB5700B8EB16 /* SettingsMenuFlow */,
 				F44055F023A668A40062F44C /* Cell */,
 				F44055D423A65E710062F44C /* AppDelegate.swift */,
 				F44055D623A65E710062F44C /* SceneDelegate.swift */,
 				F44055E823A664E00062F44C /* HomeViewController.swift */,
+				F4DE58F923AFF195006B7478 /* SettingsLauncher.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -160,6 +185,7 @@
 				F41CF1D023ABEFA9003DDD0B /* MenuBarOptions.swift */,
 				F4072C4723ACF9A600BA0D8C /* Video.swift */,
 				F4072C4923AD05EA00BA0D8C /* Channel.swift */,
+				F4DE58FD23B01868006B7478 /* SettingsMenuOptions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +224,7 @@
 				F41CF1CE23ABE738003DDD0B /* BaseCollectionViewCell.swift */,
 				F44055F123A669010062F44C /* VideoCollectionViewCell.swift */,
 				F41CF1CC23ABE6A5003DDD0B /* MenuCollectionViewCell.swift */,
+				F4DE58FB23B00F68006B7478 /* SetttingsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -207,7 +234,7 @@
 			children = (
 				F445D37423A6782B0066B916 /* UIView_Extension.swift */,
 				F43CF58223ABAC5E00A02973 /* UIColor_Extension.swift */,
-				F490A0AF23AEF22D000E40B1 /* UIImageView_Extension.swift */,
+				F490A0AF23AEF22D000E40B1 /* UIImageViewLoader.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,8 +271,30 @@
 		F4D61EBC23AECE55001D9596 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F4F7A01A23B0F9FF00B8EB16 /* NavigationBuilder.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		F4F7A01C23B0FB5700B8EB16 /* SettingsMenuFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F4F7A02A23B1007E00B8EB16 /* BaseMenuViewController.swift */,
+				F4F7A01D23B0FB7B00B8EB16 /* SettingsViewController.swift */,
+				F4F7A01F23B0FB9800B8EB16 /* PolicyViewController.swift */,
+				F4F7A02123B0FBA600B8EB16 /* FeedbackViewController.swift */,
+				F4F7A02323B0FBB400B8EB16 /* HelpViewController.swift */,
+				F4F7A02523B0FBC400B8EB16 /* SwitchAccountViewController.swift */,
+			);
+			path = SettingsMenuFlow;
+			sourceTree = "<group>";
+		};
+		F4F7A02723B0FE8F00B8EB16 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F4F7A02823B0FEA700B8EB16 /* HomeViewControllerNavigationDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +422,7 @@
 				F4828C8B23ADB7DF0047481C /* VideoAPIClientManager.swift in Sources */,
 				F4072C4A23AD05EA00BA0D8C /* Channel.swift in Sources */,
 				F41CF1D123ABEFA9003DDD0B /* MenuBarOptions.swift in Sources */,
+				F4F7A02B23B1007E00B8EB16 /* BaseMenuViewController.swift in Sources */,
 				F4D61EBB23AECB5B001D9596 /* ImageAPI.swift in Sources */,
 				F44055D523A65E710062F44C /* AppDelegate.swift in Sources */,
 				F4828C8923ADB70A0047481C /* Result.swift in Sources */,
@@ -382,12 +432,22 @@
 				F41CF1CD23ABE6A5003DDD0B /* MenuCollectionViewCell.swift in Sources */,
 				F4D61EB923AECA59001D9596 /* ImageClientManager.swift in Sources */,
 				F4828C8E23ADB81A0047481C /* VideoAPI.swift in Sources */,
+				F4F7A02423B0FBB400B8EB16 /* HelpViewController.swift in Sources */,
+				F4F7A02623B0FBC400B8EB16 /* SwitchAccountViewController.swift in Sources */,
 				F445D37523A6782B0066B916 /* UIView_Extension.swift in Sources */,
 				F4072C4823ACF9A600BA0D8C /* Video.swift in Sources */,
 				F44055D723A65E710062F44C /* SceneDelegate.swift in Sources */,
+				F4F7A02923B0FEA700B8EB16 /* HomeViewControllerNavigationDelegate.swift in Sources */,
+				F4DE58FE23B01868006B7478 /* SettingsMenuOptions.swift in Sources */,
+				F4DE58FC23B00F68006B7478 /* SetttingsCollectionViewCell.swift in Sources */,
+				F4DE58FA23AFF195006B7478 /* SettingsLauncher.swift in Sources */,
 				F43CF58623ABB25300A02973 /* MenuBar.swift in Sources */,
-				F490A0B023AEF22D000E40B1 /* UIImageView_Extension.swift in Sources */,
+				F4F7A01B23B0F9FF00B8EB16 /* NavigationBuilder.swift in Sources */,
+				F490A0B023AEF22D000E40B1 /* UIImageViewLoader.swift in Sources */,
+				F4F7A02023B0FB9800B8EB16 /* PolicyViewController.swift in Sources */,
+				F4F7A02223B0FBA600B8EB16 /* FeedbackViewController.swift in Sources */,
 				F43CF58323ABAC5E00A02973 /* UIColor_Extension.swift in Sources */,
+				F4F7A01E23B0FB7B00B8EB16 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
