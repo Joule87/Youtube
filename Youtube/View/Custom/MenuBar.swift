@@ -19,6 +19,7 @@ class MenuBar: UIView {
         return collectionView
     }()
     
+   var delegate: MenuBarParentDelegate?
     var horizontalBarLeftanchorConstraint: NSLayoutConstraint?
     
     override init(frame: CGRect) {
@@ -67,7 +68,6 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.reuseIdentifier, for: indexPath) as! MenuCollectionViewCell
         let image = MenuBarOptions(rawValue: indexPath.row)?.image
         cell.imageView.image = image
-        
         return cell
     }
     
@@ -76,15 +76,11 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/4, height: frame.height)
+        return CGSize(width: frame.width/CGFloat(MenuBarOptions.allCases.count), height: frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = CGFloat(indexPath.item) * frame.width/4
-        horizontalBarLeftanchorConstraint?.constant = x
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-             self.layoutIfNeeded()
-        }, completion: nil)
+         delegate?.scrollToMenuIndex(menuIndex: indexPath.row)
     }
     
 }
