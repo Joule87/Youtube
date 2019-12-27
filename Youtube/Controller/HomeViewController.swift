@@ -10,12 +10,13 @@ import UIKit
 
 class HomeViewController: UICollectionViewController {
     
-    let menuBar: MenuBar = {
+    lazy var menuBar: MenuBar = {
         let menu = MenuBar()
+        menu.delegate = self
         return menu
     }()
     
-    var videos: [Video] = []
+    private let menuBarHeight: CGFloat = 50
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -29,25 +30,6 @@ class HomeViewController: UICollectionViewController {
         setupNavigationBarButtons()
         setupMenuBar()
         setupCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchVideos()
-    }
-    
-    private func fetchVideos() {
-        let videoAPIClientManager = VideoAPIClientManager()
-        videoAPIClientManager.getVideos { [weak self ]result in
-            guard let saveSelf = self else { return }
-            switch result {
-            case .success(let value):
-                saveSelf.videos = value
-                saveSelf.collectionView.reloadData()
-            case .failure(let error, _):
-                print("Error: \(error.localizedDescription)")
-            }
-        }
     }
     
     private func setupNavigationBarButtons() {
@@ -72,13 +54,23 @@ class HomeViewController: UICollectionViewController {
     
     private func setupCollectionView() {
         // Register cell classes
-        self.collectionView!.register(VideoCollectionViewCell.self, forCellWithReuseIdentifier: VideoCollectionViewCell.reuseIdentifier)
+        self.collectionView!.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
+        self.collectionView!.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: TrendingCollectionViewCell.trendingCellIdentifier)
+        self.collectionView!.register(SubscriptionsCollectionViewCell.self, forCellWithReuseIdentifier: SubscriptionsCollectionViewCell.subscriptionsCellIdentifier)
+        self.collectionView!.register(LibraryCollectionViewCell.self, forCellWithReuseIdentifier: LibraryCollectionViewCell.libraryCollectionCellIdentifier)
         
         //Make collectionView elements visible under MenuBar
-        let menuBarHeight: CGFloat = 50
+        
         self.collectionView.contentInset = UIEdgeInsets(top: menuBarHeight, left: 0, bottom: 0, right: 0)
         self.collectionView.scrollIndicatorInsets = UIEdgeInsets(top: menuBarHeight, left: 0, bottom: 0, right: 0)
-         
+        
+        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+            flowLayout.minimumLineSpacing = 0
+        }
+        
+        collectionView.isPrefetchingEnabled = false
+        collectionView.isPagingEnabled = true
     }
     
     private func setupMenuBar(){
@@ -87,72 +79,79 @@ class HomeViewController: UICollectionViewController {
         redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         view.addSubview(redView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
-        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: redView)
+        view.addConstraintsWithFormat(format: "V:|[v0(\(menuBarHeight))]", views: redView)
         
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:[v0(\(menuBarHeight))]", views: menuBar)
         menuBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
     
     func setupNavigationBar() {
+        var title: String?
+        if let index = menuBar.collectionView.indexPathsForSelectedItems?.first {
+            title = MenuBarOptions(rawValue: index.row)?.description
+        }
+        
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = .white
         navigationController?.hidesBarsOnSwipe = true
         navigationItem.titleView = titleLabel
-        
         //Get rid of gray line underneath navigationBar
         navigationController?.navigationBar.shadowImage = UIImage()
         //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
     
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        return MenuBarOptions.allCases.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCollectionViewCell.reuseIdentifier, for: indexPath) as! VideoCollectionViewCell
-        cell.thumbnailImageName = videos[indexPath.row].thumbnailImageName
-        cell.title = videos[indexPath.row].title
-        cell.channelImageName = videos[indexPath.row].channel?.profileImageName
+        var identifier: String = ""
         
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        
-        if let channelName = videos[indexPath.row].channel?.name,
-            let numberOfViews = videos[indexPath.row].numberOfViews,
-            let numberOfViewsFormatted = numberFormatter.string(for: numberOfViews) {
-            
-            cell.videoDescription = "\(channelName) • \(numberOfViewsFormatted) • 2 years ago"
+        switch indexPath.row {
+        case 0:
+            identifier = FeedCollectionViewCell.identifier
+        case 1:
+            identifier = TrendingCollectionViewCell.trendingCellIdentifier
+        case 2:
+            identifier = SubscriptionsCollectionViewCell.subscriptionsCellIdentifier
+        case 3:
+            identifier = LibraryCollectionViewCell.libraryCollectionCellIdentifier
+        default:
+            break
         }
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         return cell
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        menuBar.horizontalBarLeftanchorConstraint?.constant = scrollView.contentOffset.x/CGFloat(MenuBarOptions.allCases.count)
+    }
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = Int(targetContentOffset.move().x / view.frame.width)
+        let indexPath = IndexPath(item: index, section: 0)
+        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        updateNavigationTitle(at: index)
+    }
+    
+    func updateNavigationTitle(at index: Int) {
+        if let titleLabel = navigationItem.titleView as? UILabel, let menuTitle = MenuBarOptions(rawValue: index)?.description {
+            titleLabel.text = menuTitle
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftCellSpace = CGFloat(16)
-        let rightCellSpace = CGFloat(16)
-        let thumbnailImageheight = (view.frame.width - leftCellSpace - rightCellSpace) * 9/16
-        
-        let subtitleBottonSpace = CGFloat(16)
-        let userProfileImageViewTopSpace = CGFloat(8)
-        let userProfileImageViewHeight = CGFloat(44)
-        let userProfileImageViewBottomSpace = CGFloat(16)
-        let separatorViewHeight = CGFloat(1)
-        
-        let cellHeight = thumbnailImageheight + subtitleBottonSpace + userProfileImageViewTopSpace + userProfileImageViewHeight + userProfileImageViewBottomSpace + separatorViewHeight
-        
-        return CGSize(width: view.frame.width, height: cellHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return CGSize(width: self.view.frame.width, height: self.view.frame.height - menuBarHeight)
     }
     
 }
@@ -164,4 +163,13 @@ extension HomeViewController: HomeViewControllerNavigationDelegate {
         }
         
     }
+}
+
+extension HomeViewController: MenuBarParentDelegate {
+    func scrollToMenuIndex(menuIndex: Int) {
+        updateNavigationTitle(at: menuIndex)
+        let indexPath = IndexPath(row: menuIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: [], animated: true)
+    }
+    
 }
