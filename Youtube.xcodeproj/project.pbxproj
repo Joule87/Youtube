@@ -31,6 +31,8 @@
 		F44055E923A664E00062F44C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44055E823A664E00062F44C /* HomeViewController.swift */; };
 		F44055F223A669010062F44C /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44055F123A669010062F44C /* VideoCollectionViewCell.swift */; };
 		F445D37523A6782B0066B916 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F445D37423A6782B0066B916 /* UIView_Extension.swift */; };
+		F44FE12123B654C300FAACF3 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FE12023B654C300FAACF3 /* VideoLauncher.swift */; };
+		F44FE12423B68AC400FAACF3 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FE12323B68AC400FAACF3 /* VideoPlayerView.swift */; };
 		F4828C8723ADB4AF0047481C /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8623ADB4AF0047481C /* AlamofireRequest.swift */; };
 		F4828C8923ADB70A0047481C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8823ADB70A0047481C /* Result.swift */; };
 		F4828C8B23ADB7DF0047481C /* VideoAPIClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */; };
@@ -79,6 +81,8 @@
 		F44055E823A664E00062F44C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F44055F123A669010062F44C /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F445D37423A6782B0066B916 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
+		F44FE12023B654C300FAACF3 /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
+		F44FE12323B68AC400FAACF3 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		F4828C8623ADB4AF0047481C /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		F4828C8823ADB70A0047481C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F4828C8A23ADB7DF0047481C /* VideoAPIClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIClientManager.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				F43CF58523ABB25300A02973 /* MenuBar.swift */,
+				F44FE12023B654C300FAACF3 /* VideoLauncher.swift */,
+				F44FE12323B68AC400FAACF3 /* VideoPlayerView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 				F40C516423B4F11000293AAB /* LibraryCollectionViewCell.swift in Sources */,
 				F4828C8E23ADB81A0047481C /* VideoAPI.swift in Sources */,
 				F4F7A02423B0FBB400B8EB16 /* HelpViewController.swift in Sources */,
+				F44FE12423B68AC400FAACF3 /* VideoPlayerView.swift in Sources */,
 				F4F7A02623B0FBC400B8EB16 /* SwitchAccountViewController.swift in Sources */,
 				F445D37523A6782B0066B916 /* UIView_Extension.swift in Sources */,
 				F40C515E23B3AC5A00293AAB /* FeedCollectionViewCell.swift in Sources */,
@@ -472,6 +479,7 @@
 				F40C516223B4F0FB00293AAB /* SubscriptionsCollectionViewCell.swift in Sources */,
 				F4F7A01B23B0F9FF00B8EB16 /* NavigationBuilder.swift in Sources */,
 				F490A0B023AEF22D000E40B1 /* UIImageViewLoader.swift in Sources */,
+				F44FE12123B654C300FAACF3 /* VideoLauncher.swift in Sources */,
 				F4F7A02023B0FB9800B8EB16 /* PolicyViewController.swift in Sources */,
 				F4F7A02223B0FBA600B8EB16 /* FeedbackViewController.swift in Sources */,
 				F43CF58323ABAC5E00A02973 /* UIColor_Extension.swift in Sources */,
